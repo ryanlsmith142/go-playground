@@ -3,8 +3,19 @@ package main
 import (
 	"fmt"
 	"go-beginner/greetings"
+	"log"
 )
 
 func main() {
-	fmt.Println(greetings.Hello("Ryan"))
+
+	log.SetPrefix("greetings: ")
+	log.SetFlags(0)
+
+	message, err := greetings.Hello("")
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(message)
 }
